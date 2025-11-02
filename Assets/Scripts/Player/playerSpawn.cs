@@ -5,6 +5,7 @@ public class playerSpawn : MonoBehaviour
     [Header("Player Settings")]
     public GameObject playerPrefab;        // Assign your player prefab here
     public Transform[] spawnPoints;        // Assign 5 spawn points in the Inspector
+    [SerializeField] private CamTargeting camTargeting;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class playerSpawn : MonoBehaviour
         Transform spawnPoint = spawnPoints[randomIndex];
 
         // Instantiate player at chosen spawn point
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject playerInstance = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        camTargeting.SetTarget(playerInstance.transform);
     }
 }

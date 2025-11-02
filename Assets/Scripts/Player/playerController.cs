@@ -39,17 +39,17 @@ public class playerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -59,7 +59,8 @@ public class playerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        //throw new System.NotImplementedException();
+       Vector2 look = context.ReadValue<Vector2>();
+        Debug.Log("Look input:" + look);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -85,7 +86,7 @@ public class playerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -110,7 +111,6 @@ public class playerController : MonoBehaviour, InputSystem_Actions.IPlayerAction
     {
         Vector3 moveVel = new Vector3(direction.x * speed, gravity.y, direction.y * speed);
         moveVel *= Time.fixedDeltaTime;
-
         cc.Move(moveVel);
 
     }
